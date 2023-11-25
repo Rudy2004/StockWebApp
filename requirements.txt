@@ -109,8 +109,6 @@ tqdm==4.66.1
 traitlets==4.3.3
 Twisted==18.9.0
 typing-extensions==4.7.0
-tzdata==2023.3
-ubuntu-advantage-tools==20.3
 ufw==0.36
 unattended-upgrades==0.1
 urllib3==1.25.8
