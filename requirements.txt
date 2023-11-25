@@ -115,4 +115,3 @@ Werkzeug==2.3.6
 wikipedia==1.4.0
 WTForms==3.0.1
 zipp==3.16.2
-zope.interface==4.7.1
