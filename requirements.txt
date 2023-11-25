@@ -13,7 +13,6 @@ cssselect==1.2.0
 cycler==0.11.0
 dbus-python==1.2.16
 decorator==4.4.2
-distro==1.4.0
 distro-info===0.23ubuntu1
 dnspython==2.3.0
 email-validator==2.0.0.post2
