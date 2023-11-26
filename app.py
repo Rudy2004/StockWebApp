@@ -4,7 +4,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from forms import *
 from models import *
 from middleware import *
-import pyautogui as pag
+# import pyautogui as pag
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 from datetime import timedelta
 
