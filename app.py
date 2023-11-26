@@ -15,7 +15,7 @@ app = Flask(__name__)
 # the toolbar is only enabled in debug mode:
 app.debug = True
 # set a 'SECRET_KEY' to enable the Flask session cookies
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///stockdatabase'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qzatfrka:oBMEswlhGB7-zeXR9v1yMSZU4ydcpbdo@bubble.db.elephantsql.com/qzatfrka'
 app.config['SLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = 'SECRET'
