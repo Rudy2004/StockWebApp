@@ -13,6 +13,7 @@ import plotly.graph_objects as go
 import os 
 from bs4 import BeautifulSoup
 from decimal import Decimal
+from flask_bcrypt import Bcrypt
 
 def addDataStock(stock, shares, username):
     check_data = Stock.query.filter(Stock.username == username,
@@ -91,18 +92,20 @@ def sellDataUser(username, stock, shares):
     
 
 
-def checkUser(username):
-    user = User.query.filter_by(username=username).first()
-    check_user = user.username
+def checkUser(username1):
+    user = User.query.filter_by(username=username1).first()
     
-    if check_user == username:
-        return True
+    if user == None:
+        return False
     
     else:
-        return False
+        return True
 
 def addUser(username, password):
-    new_user = User(username=username, password=password)
+    bcrypt = Bcrypt()
+    hashed = bcrypt.generate_password_hash(password)
+    hashed_utf8 = hashed.decode("utf8")
+    new_user = User(username=username, password=hashed_utf8)
     db.session.add(new_user)
     db.session.commit()
 

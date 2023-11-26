@@ -254,7 +254,7 @@ def logIn():
         user = authUser(username, password)
         if user:
             login_user(user)
-            return redirect("/portfolio")
+            return redirect("/")
     
     else:
         return render_template("logIn.html", form=form)
@@ -271,11 +271,11 @@ def createAccount():
         password = form.password.data
 
         if checkUser(username):
-            return redirect("/accountError")
+            return redirect("/login")
     
         else:
             addUser(username, password)
-            return redirect("/logIn")
+            return redirect("/login")
 
     else:
         return render_template("createAccount.html", form=form)   
