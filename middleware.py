@@ -15,6 +15,8 @@ from bs4 import BeautifulSoup
 from decimal import Decimal
 from flask_bcrypt import Bcrypt
 
+bcrypt = Bcrypt()
+
 def addDataStock(stock, shares, username):
     check_data = Stock.query.filter(Stock.username == username,
                                     Stock.stock == stock).first()
@@ -102,7 +104,7 @@ def checkUser(username1):
         return True
 
 def addUser(username, password):
-    bcrypt = Bcrypt()
+    
     hashed = bcrypt.generate_password_hash(password)
     hashed_utf8 = hashed.decode("utf8")
     new_user = User(username=username, password=hashed_utf8)
@@ -111,9 +113,14 @@ def addUser(username, password):
 
 
 def authUser(username, password):
-    user = User.query.filter_by(username=username,
-                                password=password).first()
-    return user
+
+    user = User.query.filter_by(username=username).first()
+
+    if user and bcrypt.check_password_hash(user.password, password):
+     return user
+    
+    else:
+        return False
     
 
 def get_news(stock_symbol = "AAPL"):
